@@ -1,7 +1,7 @@
 #step one:create a list of 4 functions, one that sets a matrix to be a value, one that gets a matrix already set, one that sets the inverse of the matrix,
 #and one that gets that inverse from the cache
 
-makeMatrix <- function(x = matrix(numeric(0))) {
+makeCacheMatrix <- function(x = matrix(numeric(0))) {
   i <- NULL
   set <- function(y) {
     x <<- y
@@ -18,7 +18,7 @@ makeMatrix <- function(x = matrix(numeric(0))) {
 #step two: create a function that runs the functions, first checking to see if the inverse of the matrix is already in the cache and returning that if applicable, 
 #and if not, getting the matrix from the makeMatrix list, calculating the inverse, storing it in the cache, and returning it
 
-cacheinv <- function(x) {
+cacheSolve <- function(x) {
   i <- x$getinv()
   if(!is.null(i)) {
     message("getting cached data")
@@ -29,6 +29,9 @@ cacheinv <- function(x) {
   x$setinv(i)
   i
 }
+
+#didn't see the line saying that there is a solve function in R, replacing my own invert function with solve would have been a lot easier in retrospect, but you
+#know what, let this be extra credit
 
 #as a numeric matrix is invertable if and only if it is square and has a non-zero determinant, I decided to make a function to do the Laplace expansion of the
 #matrix, remembering 2 rules: the determinant of a 1x1 matrix is the number inside it, and the determinant of an nxn matrix is the alternating dot product of 
