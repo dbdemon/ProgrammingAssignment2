@@ -113,7 +113,7 @@ invert <- function(x){
 }
 
 #let's test it out: this should get the inverse of the matrix matrix(c(1, 2, 3, 4), 2, 2) by calculating it
-testmatrix <- makeMatrix(matrix(c(1, 2, 3, 4), 2, 2))
-cacheinv(testmatrix)
+testmatrix <- makeCacheMatrix(matrix(c(1, 2, 3, 4), 2, 2))
+cacheSolve(testmatrix)
 #and this should take it from the cache
-cacheinv(testmatrix)
+cacheSolve(testmatrix)
